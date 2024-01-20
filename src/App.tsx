@@ -1,6 +1,12 @@
+import { useState } from "react";
 import "./App.css";
+import initialData from "./assets/tasks-example.json";
 
 function App() {
+  const [tasks, setTasks] = useState(initialData);
+
+  console.log(tasks);
+
   return (
     <>
       <div>
