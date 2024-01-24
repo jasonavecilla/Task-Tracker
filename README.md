@@ -1,28 +1,44 @@
-# voyage-tasks
+# V47-Tier2-Team-19
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+## Getting Started
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+These instructions will help you set up and run the project on your local machine for development purposes.
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+### Prerequisites
 
-> Own it & Make it your Own!
+Before you begin, ensure you have the following installed on your machine:
 
-## Team Documents
+- Node.js
+- npm or Yarn
 
-You may find these helpful as you work together to organize your project.
+### Clone the Repository
+```
+git clone https://github.com/chingu-voyages/v47-tier2-team-19
+```
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+```
+cd v47-tier2-team-19
+```
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+### Install Dependencies
+```
+npm install
+```
+# or
+```
+yarn install
+```
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+### Run the Development Server
+
+```
+npm run dev
+```
+#or 
+```
+yarn dev
+```
+
+
+
+
