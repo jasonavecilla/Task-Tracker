@@ -1,4 +1,5 @@
 import "./App.css";
+import TableHeader from "./components/TableHeader";
 
 function App() {
   return (
@@ -8,6 +9,14 @@ function App() {
           V47-Tier2-Team-19
         </h1>
       </div>
+      <table>
+        <thead>
+          <TableHeader />
+        </thead>
+        <tbody>
+          <TableHeader title="Routine Activities" />
+        </tbody>
+      </table>
     </>
   );
 }
