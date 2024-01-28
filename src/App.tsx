@@ -1,7 +1,14 @@
 import "./App.css";
+import { ICategory } from "./components/Interfaces";
+
 import TableHeader from "./components/TableHeader";
+import RowHeader from "./components/RowHeader";
+import { useState } from "react";
 
 function App() {
+  const categories = useState(initialData as unknown as ICategory[]) ;
+
+  console.log(categories);
   return (
     <>
       <div>
@@ -15,6 +22,7 @@ function App() {
         </thead>
         <tbody>
           <TableHeader title="Routine Activities" />
+          <RowHeader/>
         </tbody>
       </table>
     </>
