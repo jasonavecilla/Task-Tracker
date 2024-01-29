@@ -22,7 +22,7 @@ const TableHeader = ({ title }: TableHeaderProps) => {
   return (
     <>
       <tr>
-        <th rowSpan={2} className="text-nowrap px-2">
+        <th rowSpan={2} className="text-nowrap">
           {title ?? `My Daily Checklist - ${currentMonth} ${currentYear}`}
         </th>
         {weekDayRows}
