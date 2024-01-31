@@ -7,29 +7,29 @@ interface RowHeaderProps {
 
 const taskRows = (activity: Activity) => 
   activity.Tasks.map((task) => (
-    <tbody className="text-nowrap">
+    <tr className="text-nowrap">
       {task.taskName}
-    </tbody>));
+    </tr>));
 
 const activityRows = (category: Category) =>
   category.activityTypes.map((activity) => (
-    <tbody className="text-nowrap">
+    <tr className="text-nowrap">
       <b>{activity.activityName}</b>
       {taskRows(activity)}
-    </tbody>));
+    </tr>));
 
   const categoryRows = (categories: Category[]) =>
     categories?.map((category) => (
-      <tbody className="text-nowrap">
+      <tr className="text-nowrap">
         <TableHeader title={category.categoryName} />
         {activityRows(category)};
-      </tbody>));
+      </tr>));
 
 const RowHeader = ({ categories }: RowHeaderProps) => {
   return (
-    <>
+    <tbody>
       {categoryRows(categories)}
-    </>
+    </tbody>
   );
 };
 

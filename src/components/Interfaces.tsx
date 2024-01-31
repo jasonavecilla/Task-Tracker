@@ -1,16 +1,18 @@
 
-export interface Category {
+interface Category {
   categoryName: string;
   activityTypes: Activity [];
 }
 
-export interface Activity {
+interface Activity {
   activityName: string;
   Tasks: Task [];
 }
 
-export interface Task {
+interface Task {
   taskName: string;
   taskDescription: string;
   days: string [];
 }
+
+export type { Category, Activity, Task };
