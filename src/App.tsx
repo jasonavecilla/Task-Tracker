@@ -1,12 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import initialData from "./assets/tasks-example.json";
+import initialTasks from "./assets/initial-tasks.json"
 import TableHeader from "./components/TableHeader";
 
 function App() {
-  const [tasks, setTasks] = useState(initialData);
-
-  console.log(tasks);
+  console.log(initialTasks);
 
   return (
     <>
