@@ -1,24 +1,24 @@
-import { IActivity, ICategory } from "./Interfaces";
+import { Activity, Category } from "./Interfaces";
 import TableHeader from "./TableHeader";
 
 interface RowHeaderProps {
-  categories: ICategory [];
+  categories: Category [];
 }
 
-const taskRows = (activity: IActivity) => 
+const taskRows = (activity: Activity) => 
   activity.Tasks.map((task) => (
     <tbody className="text-nowrap">
       {task.taskName}
     </tbody>));
 
-const activityRows = (category: ICategory) =>
+const activityRows = (category: Category) =>
   category.activityTypes.map((activity) => (
     <tbody className="text-nowrap">
       <b>{activity.activityName}</b>
       {taskRows(activity)}
     </tbody>));
 
-  const categoryRows = (categories: ICategory[]) =>
+  const categoryRows = (categories: Category[]) =>
     categories?.map((category) => (
       <tbody className="text-nowrap">
         <TableHeader title={category.categoryName} />

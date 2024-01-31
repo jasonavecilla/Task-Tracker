@@ -1,16 +1,14 @@
 import "./App.css";
 
-// import { useState } from "react";
-
-import { ICategory } from "./components/Interfaces";
+import { Category } from "./components/Interfaces";
 import TableHeader from "./components/TableHeader";
 import RowHeader from "./components/RowHeader";
 
 import initialTasks from "./assets/initial-tasks.json"
 
 function App() {
-  const  categories: ICategory[] = [];
-  initialTasks.map((category: ICategory, i) => categories[i] = category);
+  const  categories: Category[] = [];
+  initialTasks.map((category: Category, i) => categories[i] = category);
 
   return (
     <>

@@ -1,16 +1,16 @@
 
-export interface ICategory {
-    categoryName: string;
-    activityTypes: IActivity [];
-  }
-  
-export interface IActivity {
-    activityName: string;
-    Tasks: ITask [];
-  }
-  
-export interface ITask {
-    taskName: string;
-    taskDescription: string;
-    days: string [];
-  }
+export interface Category {
+  categoryName: string;
+  activityTypes: Activity [];
+}
+
+export interface Activity {
+  activityName: string;
+  Tasks: Task [];
+}
+
+export interface Task {
+  taskName: string;
+  taskDescription: string;
+  days: string [];
+}
