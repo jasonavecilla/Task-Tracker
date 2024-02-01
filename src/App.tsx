@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 
 import { Category } from "./components/Interfaces";
@@ -9,6 +10,7 @@ import initialTasks from "./assets/initial-tasks.json"
 function App() {
   const  categories: Category[] = [];
   initialTasks.map((category: Category, i) => categories[i] = category);
+
 
   return (
     <>
