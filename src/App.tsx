@@ -1,7 +1,11 @@
+import { useState } from "react";
 import "./App.css";
+import initialTasks from "./assets/initial-tasks.json"
 import TableHeader from "./components/TableHeader";
 
 function App() {
+  console.log(initialTasks);
+
   return (
     <>
       <div>
