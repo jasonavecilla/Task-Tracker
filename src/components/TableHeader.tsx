@@ -8,9 +8,18 @@ const TableHeader = ({ title }: TableHeaderProps) => {
   const { monthDays, weekDays, currentMonth, currentYear } = useCurrentMonth();
 
   const weekDayRows = weekDays.map((day, i) => (
-    <th key={i} className="px-2">
-      {day}
-    </th>
+    <>
+      <th key={i} className="px-2">
+        {day}
+      </th>
+      {day === "S" &&
+        <th rowSpan={2} className="px-2 bg-sky-300">
+          Wk
+          <br />
+          {Math.ceil(i / 7)}
+        </th>
+      }
+    </>
   ));
 
   const monthDayRows = monthDays.map((day) => (
