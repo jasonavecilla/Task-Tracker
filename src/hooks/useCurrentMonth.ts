@@ -7,7 +7,7 @@ export const useCurrentMonth = () => {
   // returns the shorthand weekday name for a given Date
   function getDayOfTheWeek(day: Date): string {
     return day.getDay() === 4
-      ? "R"
+      ? "Th"
       : day.getDay() === 6
       ? "Sa"
       : day.toLocaleDateString("en-US", { weekday: "narrow" });
