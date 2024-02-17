@@ -1,0 +1,11 @@
+.center {
+    text-align: center;
+    /* center checkbox horizontally */
+    vertical-align: middle;
+    /* center checkbox vertically */
+  }
+
+input {
+    width: 20px;
+    height: 20px;
+  }
