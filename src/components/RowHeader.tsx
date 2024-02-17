@@ -5,9 +5,11 @@ interface RowHeaderProps {
   categories: Category [];
 }
 
+const Popup = (name: string, description: string) => alert(`Name: ${name}\nDescription: ${description}`);
+
 const taskRows = (activity: Activity) => 
   activity.Tasks.map((task) => (
-    <tr className="text-nowrap">
+    <tr className="text-nowrap" role="button" onClick={() => Popup(task.taskName, task.taskDescription)}>
       {task.taskName}
     </tr>));
 
