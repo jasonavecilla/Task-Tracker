@@ -1,13 +1,12 @@
 import "./App.css";
 
-import TableHeader from "./components/TableHeader";
-
 import initialTasks from "./assets/initial-tasks.json"
 import { useState } from "react";
+import TableHeader from "./components/TableHeader";
+import Table from "./components/Table";
 
 function App() {
-  const [tasks, setTasks] = useState(initialTasks)
-
+  const [tasks, setTasks] = useState(initialTasks);
 
   return (
     <>
@@ -24,7 +23,9 @@ function App() {
         <thead>
           <TableHeader />
         </thead>
-
+        <tbody>
+          <Table categories={tasks} />
+        </tbody>
       </table>
     </>
   );

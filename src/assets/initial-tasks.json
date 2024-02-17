@@ -4,7 +4,7 @@
 		"activityTypes": [
 			{
 				"activityName": "Projects",
-				"Tasks": [
+				"tasks": [
 					{
 						"taskName": "Update Recipes Project Backlog",
 						"taskDescription": "",
@@ -23,7 +23,7 @@
 			},
 			{
 				"activityName": "Blog Posts",
-				"Tasks": [
+				"tasks": [
 					{
 						"taskName": "Publish The recent Blog Post Draft to hashnode",
 						"taskDescription": "",
@@ -53,7 +53,7 @@
 		"activityTypes": [
 			{
 				"activityName": "Node Js Course",
-				"Tasks": [
+				"tasks": [
 					{
 						"taskName": "Plan The Node Js Course Progress By Month",
 						"taskDescription": "Set Up A Plan For The Next Month Of Node Js Learning",
@@ -72,7 +72,7 @@
 			},
 			{
 				"activityName": "MongoDB",
-				"Tasks": [
+				"tasks": [
 					{
 						"taskName": "Plan The MongoDB Course Progress By Month",
 						"taskDescription": "Set Up A Plan For The Next Month Of Node Js Learning",
@@ -96,7 +96,7 @@
 		"activityTypes": [
 			{
 				"activityName": "Backlog",
-				"Tasks": [
+				"tasks": [
 					{
 						"taskName": "Add The New Features list",
 						"taskDescription": "",
@@ -115,7 +115,7 @@
 			},
 			{
 				"activityName": "Coding",
-				"Tasks": [
+				"tasks": [
 					{
 						"taskName": "Work On The Sidebar",
 						"taskDescription": "Add The Sections Links",
@@ -139,7 +139,7 @@
 		"activityTypes": [
 			{
 				"activityName": "Voyage",
-				"Tasks": [
+				"tasks": [
 					{
 						"taskName": "Conduct The Project Planning Meeting",
 						"taskDescription": "Conduct The Project Planning Meeting To Discuss Our Ideas",
@@ -160,7 +160,7 @@
 			},
 			{
 				"activityName": "Pair Programming",
-				"Tasks": [
+				"tasks": [
 					{
 						"taskName": "Create When2Meet Link",
 						"taskDescription": "Create When2Meet Link To Introduce Yourselves",
