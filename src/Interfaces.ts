@@ -12,6 +12,7 @@ interface Task {
   taskName: string;
   taskDescription: string;
   days: string [];
+  doneDays?: string [];
 }
 
 export type { Category, Activity, Task };

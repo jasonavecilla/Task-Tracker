@@ -4,9 +4,23 @@ import initialTasks from "./assets/initial-tasks.json"
 import { useState } from "react";
 import TableHeader from "./components/TableHeader";
 import Table from "./components/Table";
+import { Activity, Category } from "./Interfaces";
 
 function App() {
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useState<Category[]>(initialTasks);
+
+  const handleCheck = (newActivity: Activity, catIndex: string, actIndex: string) => {
+    setTasks(tasks.map((category, i) => {
+      if (i !== +catIndex) return category;
+      return {
+        ...category,
+        activityTypes: category.activityTypes.map((activity, j) => {
+          if (j !== +actIndex) return activity;
+          return newActivity;
+        })
+      };
+    }));
+  };
 
   return (
     <>
@@ -24,7 +38,7 @@ function App() {
           <TableHeader />
         </thead>
         <tbody>
-          <Table categories={tasks} />
+          <Table categories={tasks} handleCheck={handleCheck} />
         </tbody>
       </table>
     </>
