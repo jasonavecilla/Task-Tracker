@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Activity } from "../Interfaces"
 import { useCurrentMonth } from "../hooks/useCurrentMonth";
+import Modal from "./Modal";
 
 const daysDictionary: {[key: string]: string} = {
   M: "monday",
@@ -22,6 +23,8 @@ interface TableActivityProps {
 const TableActivity = ({initialActivity, handleCheck, catIndex, actIndex}: TableActivityProps) => {
   const {weekDays} = useCurrentMonth();
   const [activity, setActivity] = useState(initialActivity);
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState({name: "", description: ""});
 
   const handleCheckChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return;
@@ -47,9 +50,20 @@ const TableActivity = ({initialActivity, handleCheck, catIndex, actIndex}: Table
     handleCheck(newActivity, catIndex, actIndex);
   }
 
+  const toggleModal = (name?: string, description?: string) => {
+    setModalData((prevData) => ({
+      name: name || prevData.name,
+      description: description || prevData.description
+    }));
+    setShowModal(() => !showModal);
+  };
+
   const tasks = activity.tasks.map((task, i) => (
     <tr key={i}>
-      <td className="text-nowrap border-2">{task.taskName}</td>
+      <td className="text-nowrap border-2">
+        {showModal && <Modal toggleModal={toggleModal} name={modalData.name} initialDescription={modalData.description} />}
+        <button onClick={() => toggleModal(task.taskName, task.taskDescription)}>{task.taskName}</button>
+      </td>
       {weekDays.map((day, j) => {
         const show = task.days.includes(daysDictionary[day]) || task.days.includes((j + 1).toString());
         const checked = task.doneDays ? task.doneDays.includes((j + 1).toString()) : false;

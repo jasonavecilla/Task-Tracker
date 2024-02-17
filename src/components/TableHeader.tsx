@@ -15,7 +15,7 @@ const TableHeader = ({ title, children }: TableHeaderProps) => {
   ));
 
   const monthDayRows = monthDays.map((day) => (
-    <th key={day} className="text-center border-2">
+    <th key={day} className="text-center border-2 font-normal">
       {day}
     </th>
   ));
