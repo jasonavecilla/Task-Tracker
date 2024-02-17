@@ -6,9 +6,9 @@ interface TableHeaderProps {
 }
 
 const TableHeader = ({ title }: TableHeaderProps) => {
-  const { monthDays, weekDays, currentMonth, currentYear } = useCurrentMonth();
+  const { monthDays, weekDaysShort, currentMonth, currentYear } = useCurrentMonth();
 
-  const weekDayRows = weekDays.map((day, i) => (
+  const weekDayRows = weekDaysShort.map((day, i) => (
     <>
       <th key={i} className="px-2">
         {day}

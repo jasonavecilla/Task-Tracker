@@ -5,12 +5,17 @@ export const useCurrentMonth = () => {
   const year = today.getFullYear();
 
   // returns the shorthand weekday name for a given Date
-  function getDayOfTheWeek(day: Date): string {
+  function getDayOfTheWeekShort(day: Date): string {
     return day.getDay() === 4
       ? "Th"
       : day.getDay() === 6
       ? "Sa"
       : day.toLocaleDateString("en-US", { weekday: "narrow" });
+  }
+
+  // returns the long weekday name for a given Date
+  function getDayOfTheWeekLong(day: Date): string {
+    return day.toLocaleDateString("en-US", { weekday: "long" });
   }
 
   // returns an object containing two arrays describing the days of the month
@@ -19,24 +24,27 @@ export const useCurrentMonth = () => {
   function getMonthDays(
     month: number,
     year: number
-  ): { weekDays: string[]; monthDays: string[] } {
+  ): { weekDaysShort: string[]; weekDaysLong: string[]; monthDays: string[] } {
     const date = new Date(year, month, 1);
-    const weekDays: string[] = [];
+    const weekDaysShort: string[] = [];
+    const weekDaysLong: string[] = [];
     const monthDays: string[] = [];
     while (date.getMonth() === month) {
       monthDays.push(date.getDate().toString());
-      weekDays.push(getDayOfTheWeek(date));
+      weekDaysShort.push(getDayOfTheWeekShort(date));
+      weekDaysLong.push(getDayOfTheWeekLong(date));
       date.setDate(date.getDate() + 1);
     }
-    return { weekDays, monthDays };
+    return { weekDaysShort, weekDaysLong, monthDays };
   }
 
-  const { weekDays, monthDays } = getMonthDays(today.getMonth(), year);
+  const { weekDaysShort, weekDaysLong, monthDays } = getMonthDays(today.getMonth(), year);
 
   return {
     currentMonth: month,
     currentYear: year.toString(),
     monthDays,
-    weekDays,
+    weekDaysShort,
+    weekDaysLong
   };
 };

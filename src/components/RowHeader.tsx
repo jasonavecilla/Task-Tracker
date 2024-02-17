@@ -1,6 +1,6 @@
 import "./table.css";
 import { useCurrentMonth } from "../hooks/useCurrentMonth";
-import { Activity, Category } from "./Interfaces";
+import { Activity, Category, Task } from "./Interfaces";
 import TableHeader from "./TableHeader";
 
 interface RowHeaderProps {
@@ -9,23 +9,26 @@ interface RowHeaderProps {
 
 const Popup = (name: string, description: string) => alert(`Name: ${name}\nDescription: ${description}`);
 
-const { weekDays } = useCurrentMonth();
+const { weekDaysLong } = useCurrentMonth();
 
 const taskRows = (activity: Activity) => 
   activity.Tasks.map((task) => (
     <tr>
       <td className="text-nowrap" role="button" onClick={() => Popup(task.taskName, task.taskDescription)}>{task.taskName}</td>
-      {checkboxRow()}
+      {checkboxRow(task)}
     </tr>
     ));
 
-const checkboxRow = () => 
-  weekDays.map((day) =>
-  <>
-    <td className='center'>
-      <input type="checkbox" />
-    </td>
-    {day === "S" && <td></td>}   
+const checkboxRow = (task: Task) => 
+  weekDaysLong.map((day) =>
+    <>
+      {task.days.includes(day.toLowerCase())?
+        (<td className='center'>
+          <input type="checkbox" />
+        </td>):
+        <td></td>
+      }
+      {day === "Sunday" && <td></td>}   
     </>);
 
 const activityRows = (category: Category) =>
