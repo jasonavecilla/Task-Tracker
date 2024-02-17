@@ -1,3 +1,4 @@
+import "./table.css";
 import { useCurrentMonth } from "../hooks/useCurrentMonth";
 
 interface TableHeaderProps {
@@ -29,15 +30,19 @@ const TableHeader = ({ title }: TableHeaderProps) => {
   ));
 
   return (
-    <>
-      <tr>
+    title?
+    (<>
         <th rowSpan={2} className="text-nowrap">
-          {title ?? `My Daily Checklist - ${currentMonth} ${currentYear}`}
+          {title}
         </th>
-        {weekDayRows}
-      </tr>
-      <tr>{monthDayRows}</tr>
-    </>
+        <tr>{weekDayRows}</tr>
+        <tr><td></td>{monthDayRows}</tr>
+    </>):
+    (<>
+        <th className="text-nowrap">
+          {`My Daily Checklist - ${currentMonth} ${currentYear}`}
+        </th>
+    </>)
   );
 };
 
