@@ -1,23 +1,19 @@
 import "./App.css";
 
-import { Category } from "./components/Interfaces";
 import TableHeader from "./components/TableHeader";
-import RowHeader from "./components/RowHeader";
 
 import initialTasks from "./assets/initial-tasks.json"
-import Button from '@mui/material/Button';
-
-const Save = () => alert('clicked');
+import { useState } from "react";
 
 function App() {
-  const  categories: Category[] = [];
-  initialTasks.map((category: Category, i) => categories[i] = category);
+  const [tasks, setTasks] = useState(initialTasks)
 
 
   return (
     <>
       <div className='align-left'>
-        <Button variant="contained" onClick={Save}>Save</Button>
+        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >Save</button>
       </div>
       <div>
         <h1 className="text-3xl font-bold text-red-500">
@@ -28,7 +24,7 @@ function App() {
         <thead>
           <TableHeader />
         </thead>
-        <RowHeader categories={categories}/>
+
       </table>
     </>
   );
