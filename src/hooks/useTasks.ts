@@ -3,7 +3,7 @@ import initialTasks from "../assets/initial-tasks.json"
 import { Category } from "../Interfaces";
 
 const useTasks = () : [Category[] | null, React.Dispatch<React.SetStateAction<Category[]>> | null] => {
-  const [tasks, setTasks] = useState<Category[] | null>(null);
+  const [tasks, setTasks] = useState<Category[]>([]);
 
   useEffect(() => {
     const localTasks = localStorage.getItem("tasks");

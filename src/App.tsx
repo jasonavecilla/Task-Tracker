@@ -4,11 +4,12 @@ import TableHeader from "./components/TableHeader";
 import Table from "./components/Table";
 import { Activity } from "./Interfaces";
 import useTasks from "./hooks/useTasks";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const [tasks, setTasks] = useTasks();
   const [showSaveText, setShowSaveText] = useState(false);
+  const textRef = useRef<HTMLElement>(null);
 
   const handleCheck = (newActivity: Activity, catIndex: string, actIndex: string) => {
     if (!tasks || !setTasks) return;
@@ -30,7 +31,10 @@ function App() {
   };
 
   useEffect(() => {
-    if (showSaveText) setTimeout(() => setShowSaveText(false), 3000);
+    if (showSaveText) setTimeout(() => {
+      if (!textRef.current) return;
+      textRef.current.classList.add("opacity-0");
+    }, 0)
   }, [showSaveText]);
 
   return (
@@ -39,7 +43,8 @@ function App() {
         <button className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2"
           onClick={saveTasksToLocalStorage}>Save</button>
         {showSaveText && 
-          <span>Changes saved!</span>
+          <span className="transition-opacity duration-1000 delay-1000" ref={textRef}
+            onTransitionEnd={() => setShowSaveText(false)}>Changes saved!</span>
         }
       </div>
       <div>
