@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import initialTasks from "../assets/initial-tasks.json"
 import { Category } from "../Interfaces";
 
-const useTasks = () : [Category[] | null, React.Dispatch<React.SetStateAction<Category[]>> | null] => {
+const useTasks = () : [Category[], React.Dispatch<React.SetStateAction<Category[]>>] => {
   const [tasks, setTasks] = useState<Category[]>([]);
 
   useEffect(() => {

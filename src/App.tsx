@@ -12,7 +12,6 @@ function App() {
   const textRef = useRef<HTMLElement>(null);
 
   const handleCheck = (newActivity: Activity, catIndex: string, actIndex: string) => {
-    if (!tasks || !setTasks) return;
     setTasks(tasks.map((category, i) => {
       if (i !== +catIndex) return category;
       return {
