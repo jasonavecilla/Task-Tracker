@@ -1,15 +1,17 @@
 import "./App.css";
 
-import initialTasks from "./assets/initial-tasks.json"
-import { useState } from "react";
 import TableHeader from "./components/TableHeader";
 import Table from "./components/Table";
-import { Activity, Category } from "./Interfaces";
+import { Activity } from "./Interfaces";
+import useTasks from "./hooks/useTasks";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState<Category[]>(initialTasks);
+  const [tasks, setTasks] = useTasks();
+  const [showSaveText, setShowSaveText] = useState(false);
 
   const handleCheck = (newActivity: Activity, catIndex: string, actIndex: string) => {
+    if (!tasks || !setTasks) return;
     setTasks(tasks.map((category, i) => {
       if (i !== +catIndex) return category;
       return {
@@ -22,11 +24,23 @@ function App() {
     }));
   };
 
+  const saveTasksToLocalStorage = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    setShowSaveText(true);
+  };
+
+  useEffect(() => {
+    if (showSaveText) setTimeout(() => setShowSaveText(false), 3000);
+  }, [showSaveText]);
+
   return (
     <>
-      <div className='align-left'>
-        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        >Save</button>
+      <div className='flex items-center mb-2'>
+        <button className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2"
+          onClick={saveTasksToLocalStorage}>Save</button>
+        {showSaveText && 
+          <span>Changes saved!</span>
+        }
       </div>
       <div>
         <h1 className="text-3xl font-bold text-red-500">
@@ -38,7 +52,9 @@ function App() {
           <TableHeader />
         </thead>
         <tbody>
-          <Table categories={tasks} handleCheck={handleCheck} />
+          {tasks && 
+            <Table categories={tasks} handleCheck={handleCheck} />
+          }
         </tbody>
       </table>
     </>
