@@ -50,18 +50,33 @@ const TableActivity = ({initialActivity, handleCheck, catIndex, actIndex}: Table
     handleCheck(newActivity, catIndex, actIndex);
   }
 
-  const toggleModal = (name?: string, description?: string) => {
+  const toggleModal = (name?: string, description?: string, id?: string) => {
     setModalData((prevData) => ({
-      name: name || prevData.name,
-      description: description || prevData.description
+      name: name ?? prevData.name,
+      description: description ?? prevData.description
     }));
     setShowModal(() => !showModal);
+    if (name && id) {
+      const [catIndex, actIndex] = id.split("-");
+      const newActivity = {
+        ...activity,
+        tasks: activity.tasks.map(task => {
+          if (name !== task.taskName) return task;
+          return {
+            ...task,
+            taskDescription: description ?? "",
+          };
+        })
+      };
+      setActivity(newActivity);
+      handleCheck(newActivity, catIndex, actIndex)
+    }
   };
 
   const tasks = activity.tasks.map((task, i) => (
     <tr key={i}>
       <td className="text-nowrap border-2">
-        {showModal && <Modal toggleModal={toggleModal} name={modalData.name} initialDescription={modalData.description} />}
+        {showModal && <Modal toggleModal={toggleModal} id={`${catIndex}-${actIndex}`} name={modalData.name} initialDescription={modalData.description} />}
         <button onClick={() => toggleModal(task.taskName, task.taskDescription)}>{task.taskName}</button>
       </td>
       {weekDays.map((day, j) => {

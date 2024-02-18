@@ -12,7 +12,8 @@ const Table = ({categories, handleCheck}: TableProps) => {
     <TableHeader key={i} title={category.categoryName}>
       {
         category.activityTypes.map((activity, j) => (
-          <TableActivity key={j} initialActivity={activity} handleCheck={handleCheck} catIndex={i} actIndex={j} />
+          <TableActivity key={j} initialActivity={activity} handleCheck={handleCheck}
+          catIndex={i} actIndex={j} />
         ))
       }
     </TableHeader>    
