@@ -1,4 +1,3 @@
-
 interface Category {
   categoryName: string;
   activityTypes: Activity [];
@@ -6,13 +5,14 @@ interface Category {
 
 interface Activity {
   activityName: string;
-  Tasks: Task [];
+  tasks: Task [];
 }
 
 interface Task {
   taskName: string;
   taskDescription: string;
   days: string [];
+  doneDays?: string [];
 }
 
 export type { Category, Activity, Task };
