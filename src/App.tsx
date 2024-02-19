@@ -41,7 +41,7 @@ function App() {
       <header className="flex mb-2 fixed top-0 left-0 w-full py-2 bg-white px-16">
         <div className="flex-1">
           <h1 className="text-3xl font-bold text-red-500 text-center">
-            V47-Tier2-Team-19
+            Task Tracker
           </h1>
         </div>
         <div className='flex-1 flex items-center justify-center'>
