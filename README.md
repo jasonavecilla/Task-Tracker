@@ -45,7 +45,7 @@ The user can save the changes to their device when they update it.
 
 - [Jonatan](https://github.com/jcidp)
 - [Beth](https://github.com/bscaer)
-- - [jasonavecilla](https://github.com/jasonavecilla)
+- [jasonavecilla](https://github.com/jasonavecilla)
 
 ---
 
